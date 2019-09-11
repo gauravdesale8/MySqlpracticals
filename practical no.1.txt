@@ -1,0 +1,123 @@
+Aim: To perform following queries.
+
+#To view databases:
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cs_2019            |
+| fire1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.10 sec)
+
+#To create database:
+
+mysql> create database Fycs_2019;
+Query OK, 1 row affected (0.36 sec)
+
+#To use database:
+
+mysql> use Fycs_2019;
+Database changed
+
+#To create table without constraints:
+
+mysql>  create table stud(Sid int(10),Sname varchar(50),Smarks int(10),Saddress varchar(100),Smobile int(20),spointer float(20));
+Query OK, 0 rows affected, 3 warnings (0.61 sec)
+
+#To view structure of table:
+
+mysql> describe stud;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| Sid      | int(10)      | YES  |     | NULL    |       |
+| Sname    | varchar(50)  | YES  |     | NULL    |       |
+| Smarks   | int(10)      | YES  |     | NULL    |       |
+| Saddress | varchar(100) | YES  |     | NULL    |       |
+| Smobile  | int(20)      | YES  |     | NULL    |       |
+| spointer | float        | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+6 rows in set (0.29 sec)
+
+#To insert values in the table:
+
+mysql> insert into stud values(1,'Alex',950,'Boston',967834786,9.5);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into stud values(2,'Thomas',870,'Queens',897854567,8.7);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into stud values(3,'Mia',760,'Detriot',786756789,7.6);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into stud values(4,'Eric',820,'Chicago',873462749,8.2);
+Query OK, 1 row affected (0.27 sec)
+
+mysql> insert into stud values(5,'Chloe',920,'Alanta',986756789,9.2);
+Query OK, 1 row affected (0.26 sec)
+
+#To view the table values:
+
+mysql> select*from stud;
++------+--------+--------+----------+-----------+----------+
+| Sid  | Sname  | Smarks | Saddress | Smobile   | spointer |
++------+--------+--------+----------+-----------+----------+
+|    1 | Alex   |    950 | Boston   | 967834786 |      9.5 |
+|    2 | Thomas |    870 | Queens   | 897854567 |      8.7 |
+|    3 | Mia    |    760 | Detriot  | 786756789 |      7.6 |
+|    4 | Eric   |    820 | Chicago  | 873462749 |      8.2 |
+|    5 | Chloe  |    920 | Alanta   | 986756789 |      9.2 |
++------+--------+--------+----------+-----------+----------+
+5 rows in set (0.00 sec)
+
+#To update the table values:
+
+mysql> update stud set Sname='Hannah' where Sid=5;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+#To view the table values:
+
+mysql> select*from stud;
++------+--------+--------+----------+-----------+----------+
+| Sid  | Sname  | Smarks | Saddress | Smobile   | spointer |
++------+--------+--------+----------+-----------+----------+
+|    1 | Alex   |    950 | Boston   | 967834786 |      9.5 |
+|    2 | Thomas |    870 | Queens   | 897854567 |      8.7 |
+|    3 | Mia    |    760 | Detriot  | 786756789 |      7.6 |
+|    4 | Eric   |    820 | Chicago  | 873462749 |      8.2 |
+|    5 | Hannah |    920 | Alanta   | 986756789 |      9.2 |
++------+--------+--------+----------+-----------+----------+
+5 rows in set (0.00 sec)
+
+#To delete the table values:
+
+mysql> delete from stud where Sname='Hannah';
+Query OK, 1 row affected (0.10 sec)
+
+#To view table values:
+
+mysql> select*from stud;
++------+--------+--------+----------+-----------+----------+
+| Sid  | Sname  | Smarks | Saddress | Smobile   | spointer |
++------+--------+--------+----------+-----------+----------+
+|    1 | Alex   |    950 | Boston   | 967834786 |      9.5 |
+|    2 | Thomas |    870 | Queens   | 897854567 |      8.7 |
+|    3 | Mia    |    760 | Detriot  | 786756789 |      7.6 |
+|    4 | Eric   |    820 | Chicago  | 873462749 |      8.2 |
++------+--------+--------+----------+-----------+----------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
