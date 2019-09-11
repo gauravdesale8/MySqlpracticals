@@ -1,0 +1,144 @@
+Aim:- To perform simple queries with aggregate functions.
+
+#To view databases:
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cs_2019            |
+| fire1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.10 sec)
+
+#To create database:
+
+mysql> create database Fycs_2019;
+Query OK, 1 row affected (0.36 sec)
+
+#To use database:
+
+mysql> use Fycs_2019;
+Database changed
+
+#To create a table:
+
+mysql> create table employee(ID int(10),Name varchar(50),Salary decimal(9,2));
+Query OK, 0 rows affected, 1 warning (0.83 sec)
+
+#To view structure of table:
+
+mysql> describe employee;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| ID     | int(10)      | YES  |     | NULL    |       |
+| Name   | varchar(50)  | YES  |     | NULL    |       |
+| Salary | decimal(9,2) | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+3 rows in set (0.09 sec)
+
+#To insert data in table:
+
+mysql> insert into employee values(1001,'Justin',55455.65);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into employee values(1002,'Zach',65790.75);
+Query OK, 1 row affected (0.21 sec)
+
+mysql> insert into employee values(1003,'Jessica',70560.95);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into employee values(1004,'Tyler',60790.99);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into employee values(1005,'Tony',75896.75);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into employee values(1006,'Steve',83645.79);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into employee values(1007,'Lana',88610.90);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into employee values(1008,'Alexa',64599.26);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into employee values(1009,'Selena',96590.90);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into employee values(1010,'Peter',85375.30);
+Query OK, 1 row affected (0.10 sec)
+
+#To view the table.
+
+mysql> select*from employee;
++------+---------+----------+
+| ID   | Name    | Salary   |
++------+---------+----------+
+| 1001 | Justin  | 55455.65 |
+| 1002 | Zach    | 65790.75 |
+| 1003 | Jessica | 70560.95 |
+| 1004 | Tyler   | 60790.99 |
+| 1006 | Steve   | 83645.79 |
+| 1007 | Lana    | 88610.90 |
+| 1008 | Alexa   | 64599.26 |
+| 1009 | Selena  | 96590.90 |
+| 1010 | Peter   | 85375.30 |
+| 1005 | Tony    | 75896.75 |
++------+---------+----------+
+10 rows in set (0.00 sec)
+
+#To use count aggregate function:
+
+mysql> select count(salary) as 'Total Employees' from employee;
++-----------------+
+| Total Employees |
++-----------------+
+|              10 |
++-----------------+
+1 row in set (0.08 sec)
+
+#To use min aggregate function:
+
+mysql> select min(salary) as 'Minimum Salary' from employee;
++----------------+
+| Minimum Salary |
++----------------+
+|       55455.65 |
++----------------+
+1 row in set (0.06 sec)
+
+#To use max aggregate function:
+
+mysql> select max(salary) as 'Maximum Salary' from employee;
++----------------+
+| Maximum Salary |
++----------------+
+|       96590.90 |
++----------------+
+1 row in set (0.00 sec)
+
+#To use avg aggregate function:
+
+mysql> select avg(salary) as 'Average Salary' from employee;
++----------------+
+| Average Salary |
++----------------+
+|   74731.724000 |
++----------------+
+1 row in set (0.00 sec)
+
+#To use sum aggregate function:
+
+mysql> select sum(salary) as 'Total Salary' from employee;
++--------------+
+| Total Salary |
++--------------+
+|    747317.24 |
++--------------+
+1 row in set (0.00 sec)
