@@ -1,0 +1,187 @@
+Aim:- Altering a table such as adding columns,removing columns,changing column type.
+
+#To view databases:
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cs_2019            |
+| fire1              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.10 sec)
+
+#To create database:
+
+mysql> create database Fycs_2019;
+Query OK, 1 row affected (0.36 sec)
+
+#To use database:
+
+mysql> use Fycs_2019;
+Database changed
+
+#To create table without constraints:
+
+mysql>  create table stud(Sid int(10),Sname varchar(50),Smarks int(10),Saddress varchar(100),Smobile int(20),spointer float(20));
+Query OK, 0 rows affected, 3 warnings (0.61 sec)
+
+#To view structure of table:
+
+mysql> describe stud;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| Sid      | int(10)      | YES  |     | NULL    |       |
+| Sname    | varchar(50)  | YES  |     | NULL    |       |
+| Smarks   | int(10)      | YES  |     | NULL    |       |
+| Saddress | varchar(100) | YES  |     | NULL    |       |
+| Smobile  | int(20)      | YES  |     | NULL    |       |
+| spointer | float        | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+6 rows in set (0.29 sec)
+
+#To insert values in the table:
+
+mysql> insert into stud values(1,'Alex',950,'Boston',967834786,9.5);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into stud values(2,'Thomas',870,'Queens',897854567,8.7);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into stud values(3,'Mia',760,'Detriot',786756789,7.6);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into stud values(4,'Eric',820,'Chicago',873462749,8.2);
+Query OK, 1 row affected (0.27 sec)
+
+mysql> insert into stud values(5,'Chloe',920,'Alanta',986756789,9.2);
+Query OK, 1 row affected (0.26 sec)
+
+#To view the table values:
+
+mysql> select*from stud;
++------+--------+--------+----------+-----------+----------+
+| Sid  | Sname  | Smarks | Saddress | Smobile   | spointer |
++------+--------+--------+----------+-----------+----------+
+|    1 | Alex   |    950 | Boston   | 967834786 |      9.5 |
+|    2 | Thomas |    870 | Queens   | 897854567 |      8.7 |
+|    3 | Mia    |    760 | Detriot  | 786756789 |      7.6 |
+|    4 | Eric   |    820 | Chicago  | 873462749 |      8.2 |
+|    5 | Chloe  |    920 | Alanta   | 986756789 |      9.2 |
++------+--------+--------+----------+-----------+----------+
+5 rows in set (0.00 sec)
+
+#To alter the table:
+
+mysql> alter table stud add Sage int(10);
+Query OK, 0 rows affected, 1 warning (0.55 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+#To view the table values:
+
+mysql> select*from stud;
++------+--------+--------+----------+-----------+----------+------+
+| Sid  | Sname  | Smarks | Saddress | Smobile   | spointer | Sage |
++------+--------+--------+----------+-----------+----------+------+
+|    1 | Alex   |    950 | Boston   | 967834786 |      9.5 | NULL |
+|    2 | Thomas |    870 | Queens   | 897854567 |      8.7 | NULL |
+|    3 | Mia    |    760 | Detriot  | 786756789 |      7.6 | NULL |
+|    4 | Eric   |    820 | Chicago  | 873462749 |      8.2 | NULL |
+|    5 | Chloe  |    920 | Alanta   | 986756789 |      9.2 | NULL |
++------+--------+--------+----------+-----------+----------+------+
+5 rows in set (0.00 sec)
+
+#To remove columns:
+
+mysql> alter table stud drop Sage;
+Query OK, 0 rows affected (1.67 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+#To view the table:
+
+mysql> select*from stud;
++------+--------+--------+----------+-----------+----------+
+| Sid  | Sname  | Smarks | Saddress | Smobile   | spointer |
++------+--------+--------+----------+-----------+----------+
+|    1 | Alex   |    950 | Boston   | 967834786 |      9.5 |
+|    2 | Thomas |    870 | Queens   | 897854567 |      8.7 |
+|    3 | Mia    |    760 | Detriot  | 786756789 |      7.6 |
+|    4 | Eric   |    820 | Chicago  | 873462749 |      8.2 |
+|    5 | Chloe  |    920 | Alanta   | 986756789 |      9.2 |
++------+--------+--------+----------+-----------+----------+
+5 rows in set (0.00 sec)
+
+#To change column type:
+
+mysql> alter table stud modify Sid char;
+Query OK, 5 rows affected (1.95 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+#To view the table:
+
+mysql> select*from stud;
++------+--------+--------+----------+-----------+----------+
+| Sid  | Sname  | Smarks | Saddress | Smobile   | spointer |
++------+--------+--------+----------+-----------+----------+
+| 1    | Alex   |    950 | Boston   | 967834786 |      9.5 |
+| 2    | Thomas |    870 | Queens   | 897854567 |      8.7 |
+| 3    | Mia    |    760 | Detriot  | 786756789 |      7.6 |
+| 4    | Eric   |    820 | Chicago  | 873462749 |      8.2 |
+| 5    | Chloe  |    920 | Alanta   | 986756789 |      9.2 |
++------+--------+--------+----------+-----------+----------+
+5 rows in set (0.06 sec)
+
+#To rename the table:
+
+mysql> rename table stud to students;
+Query OK, 0 rows affected (0.81 sec)
+
+#To view the tables in database:
+
+mysql> show tables;
+
++--------------+
+| Tables_in_h1 |
++--------------+
+| students     |
++--------------+
+1 row in set (0.17 sec)
+
+#To view the table:
+
+mysql> select*from students;
++------+--------+--------+----------+-----------+----------+
+| Sid  | Sname  | Smarks | Saddress | Smobile   | spointer |
++------+--------+--------+----------+-----------+----------+
+| 1    | Alex   |    950 | Boston   | 967834786 |      9.5 |
+| 2    | Thomas |    870 | Queens   | 897854567 |      8.7 |
+| 3    | Mia    |    760 | Detriot  | 786756789 |      7.6 |
+| 4    | Eric   |    820 | Chicago  | 873462749 |      8.2 |
+| 5    | Chloe  |    920 | Alanta   | 986756789 |      9.2 |
++------+--------+--------+----------+-----------+----------+
+5 rows in set (0.10 sec)
+
+#To truncate the table:
+
+mysql> truncate table Students;
+Query OK, 0 rows affected (1.07 sec)
+
+#To view the table:
+
+mysql> select*from students;
+Empty set (0.01 sec)
+
+#To drop the table:
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.43 sec)
+
+#To view the table:
+
+mysql> select*from student;
+ERROR 1146 (42S02): Table 'Fycs_2019.student' doesn't exist
