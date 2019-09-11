@@ -8,4 +8,4 @@ Aim:- To perform inserting,updating,deleting queries.
 Aim:- Altering a table such as adding columns,removing columns,changing column type.
 
 #Practical No.3
-Aim:-Aim:- To perform simple queries with aggregate functions.
+Aim:- To perform simple queries with aggregate functions.
